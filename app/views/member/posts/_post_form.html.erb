@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+                  <div class="form-group">
+                  <%= f.label :category, 'カテゴリー（分野）' %>
+                    <%= f.select :category, [["", Post::CATEGORY_NAMES]], :prompt => '以下よりお選び下さい' %>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" placeholder="見出し" id="subject" name="subject" class="form-control" required>
+                  </div>
+
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <%= f.text_area :content, :placeholder => "投稿内容を記入してください。", :size => "40x5"  %>
+                  </div>
+                </div>

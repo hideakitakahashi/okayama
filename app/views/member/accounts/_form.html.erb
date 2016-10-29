@@ -1,0 +1,13 @@
+
+<%= f.label :image, '写真イメージ' %>
+<%= f.file_field :image %>
+<%= f.label :email, 'メールアドレス' %>
+<%= f.email_field :email, size: 32 %>
+
+<%= f.label :family_name, '氏名' %>
+<%= f.text_field :family_name %>
+<%= f.text_field :given_name %>
+
+<%= f.label :family_name, 'フリガナ' %>
+<%= f.text_field :family_name_kana %>
+<%= f.text_field :given_name_kana %>

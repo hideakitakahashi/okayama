@@ -1,0 +1,18 @@
+<% @title = 'メンバーログイン' %>
+
+<div id="login-form">
+<h1><%= @title %></h1>
+
+ <%= form_for @form, url: :member_session do |f| %>
+  <div>
+   <%= f.label :email, 'email' %>
+   <%= f.text_field :email %>
+
+   <%= f.label :password, 'password' %>
+   <%= f.password_field :password %>
+  </div>
+  <div>
+   <%= f.submit 'ログイン'%>
+  </div>
+ <% end %>
+</div>

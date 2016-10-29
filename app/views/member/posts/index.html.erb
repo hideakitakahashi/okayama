@@ -1,0 +1,27 @@
+掲示板の使い方
+コミュニティーの説明
+その他
+
+
+<% @posts.each do |m| %>
+<%= l m.created_at, format: :short %>
+  <div>カテゴリー：<%= link_to m.category, [:member, m] %></div>
+  <div>内容：<%= link_to m.content.truncate(20), [:member, m] %></div>
+  <div>コメント：<%= link_to m.comments.count, [:member, m] %></div>
+
+  <%= m.comments.each do |c| %>
+  <%= c.content %>
+  <% end %>
+
+  <% if current_member %>
+<%= form_for [ :member, @comment ] do |f| %>
+
+<%= f.text_field :content %>
+<%= f.hidden_field :member_id %>
+<%= f.hidden_field :post_id, :value => m.id %>
+
+  <%= f.submit 'コメントする' %>
+<% end %>
+<% else %>
+<% end %>
+  <% end %>

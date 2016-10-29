@@ -1,0 +1,185 @@
+    <!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
+  <div class="main-content-area">
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+    <section class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+            <h1>投稿詳細</h1>
+          </div>
+          <!-- end col -->
+          <div class="col-md-6 col-sm-5 co-xs-12 text-right">
+            <div class="bread">
+              <ol class="breadcrumb">
+                <li><a href="#">トップページ</a>
+                </li>
+                <li class="active">投稿詳細</li>
+              </ol>
+            </div>
+            <!-- end bread -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Question Details =-=-=-=-=-=-= -->
+
+    <section class="section-padding-80 white question-details">
+      <div class="container">
+        <!-- Row -->
+        <div class="row">
+          <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+            <!-- Question Detail -->
+
+            <!-- Question Listing -->
+            <div class="listing-grid ">
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <h3><a  href="#"> <%= @post.content %> </a></h3>
+                  <div class="listing-meta"> <span><i class="fa fa-clock-o" aria-hidden="true"></i>投稿日：<%= l @post.created_at, format: :short %></span> <span><i class="fa fa fa-eye" aria-hidden="true"></i></span> </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                  <div class="tagcloud"> <a href=""><%= @post.category %></a> </div>
+                </div>
+              </div>
+            </div>
+            <!-- Question Listing End -->
+
+            <div class="clearfix"></div>
+            <!-- Thread Reply -->
+            <div class="thread-reply">
+              <h2>応答コメント</h2>
+
+               <div class="panel-body">
+
+                <div id="tab1" class="tab-pane active">
+                 <table>
+
+                <%= @comments.each do |k| %>
+                  <!-- Question Listing -->
+
+                 <tr>
+
+                   <td><%= image_tag k.member.image, :class => "img-sm" %></td>
+                   <td><%= k.member.family_name %></td>
+                  <td><%= k.content %></td>
+                  <td><%= l k.created_at, format: :short %></td>
+                  </tr>
+                  <% end %>
+                </table>
+
+                </div>
+              </div>
+
+
+
+
+
+
+
+              <div class="clearfix"></div>
+                  <div class="form-group">
+                  <label>新規コメント</label>
+                       <% if current_member %>
+                        <%= form_for [ :member, @comment ] do |f| %>
+
+                        <%= f.text_area :content, :pleceholder => 'こちらに応答してください'%>
+                        <%= f.hidden_field :member_id, :value => current_member.id %>
+                        <%= f.hidden_field :post_id, :value => @post.id %>
+
+                        <%= f.submit 'コメントする', :class => "btn btn-primary btn-lg btn-block"%>
+                       <% end %>
+                       <% else %>
+                      <% end %>
+                    </div>
+
+            </div>
+            <!-- Thread Reply End -->
+
+            </div>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- Right Sidebar -->
+          <div class="col-md-4 col-sm-12 col-xs-12 clearfix">
+
+            <!-- sidebar -->
+            <div class="side-bar">
+              <div class="widget">
+                <div class="widget-image widget-image-sm">
+                  <div class="widget-image-content text-center"> 
+                  <%= image_tag @post.member.image, :class => "img-thumbnail" %>
+                    <h2 class="widget-heading text-light"><strong>投稿者：<%= @post.member.family_name %> <%= @post.member.given_name %></strong></h2>
+                    <h4 class="widget-heading text-light-op"><em><% @post.member.shops.each do |m| %>
+                      <%= m.name %><% end %></em>
+                    </h4>
+                  </div>
+                </div>
+                <!--<div class="widget-content border-bottom">
+                  <h4>About</h4>
+                  <p>Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit.</p>
+                  <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum.</p>
+                </div>-->
+                <div class="widget-content">
+
+                  
+              </div>
+
+              <!-- widget -->
+              <div class="widget">
+                <div class="recent-comments">
+                  <h2>サイト内の最新投稿</h2>
+                  <hr class="widget-separator no-margin">
+                  <ul>
+                  <%= @posts.first(5).each do |p| %>
+                
+                    <li>
+
+
+                     投稿カテゴリー：<a href=""><%= p.category %></a><br>
+                    <a href="#"><%= p.content %></a>
+
+
+
+                    </li>
+
+                    <% end %>
+
+                  </ul>
+                </div>
+              </div>
+              <!-- widget -->
+            </div>
+            <!-- sidebar end -->
+          </div>
+          <!-- Right Sidebar End -->
+
+        </div>
+      </div>
+    </div>
+        <!-- Row End -->
+      </div>
+    </div>
+    </section>
+    <!-- =-=-=-=-=-=-= Question Details end =-=-=-=-=-=-= -->
+  </div>
+  <!-- =-=-=-=-=-=-= Main Area End =-=-=-=-=-=-= -->

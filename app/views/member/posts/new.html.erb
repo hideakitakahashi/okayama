@@ -1,0 +1,78 @@
+
+
+
+  
+
+
+
+<!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
+  <div class="main-content-area">
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+    <section class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+            <h1>新しい投稿</h1>
+          </div>
+          <!-- end col -->
+
+          <div class="col-md-6 col-sm-5 co-xs-12 text-right">
+            <div class="bread">
+              <ol class="breadcrumb">
+                <li><%= link_to 'トップページ', :member_root %>
+                </li>
+                <li class="active">新しい投稿</li>
+              </ol>
+            </div>
+            <!-- end bread -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Contact Us  =-=-=-=-=-=-= -->
+
+<section class="section-padding-80 white" id="post-question">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-8 ">
+
+            <div class="box-panel">
+
+            <h2>投稿作成</h2>
+            <p>好きなカテゴリーに聞きたいことを投稿してみよう</p>
+            <hr>
+            <% if current_member %>
+             <%= form_for [ :member, @post ], :html => {:id => "contactForm"} do |f| %>
+              <div class="row">
+                <div class="col-lg-6 formmargin">
+
+                  <%= render 'post_form', f: f %>
+                <div class="col-lg-12">
+                  <%= f.submit '投稿する', :class => "btn btn-primary" %>
+
+                </div>
+              </div>
+            <% end %>
+            <% else %>
+            <%= link_to 'メンバー登録して投稿してみる', :member_signup %>
+           <% end %>
+            </div>
+          </div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- end container -->
+    </section>
+    <!-- =-=-=-=-=-=-= Contact Us End =-=-=-=-=-=-= -->
+
+  </div>
+  <!-- =-=-=-=-=-=-= Main Area End =-=-=-=-=-=-= -->

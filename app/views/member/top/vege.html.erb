@@ -1,0 +1,35 @@
+    <div class="main-content-area">
+    <!-- =-=-=-=-=-=-= Latest Questions  =-=-=-=-=-=-= -->
+
+    <section class="white question-tabs padding-bottom-80" id="latest-post">
+      <div class="container">
+        <div class="row">
+        <div class="search-area container">
+        <p class="slogan-tag-line">農産畜産品</p>
+        <p>自然農産品のカテゴリーです！</p>
+      </div>
+        <div id="tab1" class="tab-pane active">
+                 <table>
+              <% @vegetable.each do |m| %>
+                  <!-- Question Listing -->
+
+                 <tr>
+
+                   <td><strong><%= m.name %></strong></td>
+                  <td><%= m.member.family_name %>　<%= m.member.given_name %></td>
+                  <td><%= link_to m.url, m.url %></td>
+
+
+
+                  <td><%= m.email %></td>
+                  <td><%= m.phone %></td>
+                  </tr>
+              <% end %>
+
+            </table>
+          </div>
+
+                </div>
+              </div>
+            </section>
+          </div>
