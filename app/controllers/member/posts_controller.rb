@@ -46,7 +46,7 @@ class Member::PostsController < Member::Base
 
 
   def post_params
-    params.require(:post).permit(:category, :content)
+    params.require(:post).permit(:category, :content, :title)
     end
 
   

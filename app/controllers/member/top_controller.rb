@@ -33,8 +33,8 @@ end
  def goods
     @goods = Shop.where(category: '日用雑貨')
 end
- def shop
-    @shop = Shop.where(category: '売店食堂')
+ def store
+    @store = Shop.where(category: '売店食堂')
 end
  def art
     @art = Shop.where(category: '工房、アート、おもちゃ')

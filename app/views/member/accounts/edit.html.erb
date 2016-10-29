@@ -1,7 +1,66 @@
-編集画面
 
-<%= form_for @member, url: :member_account do |f| %>
-  <%= render 'form', f: f %>
-  <%= f.submit '更新' %>
-  <%= link_to 'キャンセル', :member_account %>
-<% end %>
+
+
+
+ <!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
+  <div class="main-content-area">
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+    <section class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+            <h1>アカウント情報編集</h1>
+          </div>
+          <!-- end col -->
+          <div class="col-md-6 col-sm-5 co-xs-12 text-right">
+            <div class="bread">
+              <ol class="breadcrumb">
+                <li><a href="#">トップページ</a>
+                </li>
+                <li class="active">アカウント情報編集</li>
+              </ol>
+            </div>
+            <!-- end bread -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Register Form =-=-=-=-=-=-= -->
+    <section class="section-padding-80 white" id="register">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+
+            <div class="box-panel">
+
+            <p>アカウントの基本情報を編集できます。</p>
+
+              <p class="text-center margin-top-10"><span class="span-line"></span>
+              </p>
+
+              <!-- form login -->
+              <%= form_for @member, url: :member_account do |f| %>
+              <%= render 'form', f: f %>
+                <%= f.submit '更新', :class => "btn btn-primary btn-lg btn-block" %>
+
+              </form>
+              <!-- form login -->
+              <% end %>
+
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- end container -->
+    </section>
+    <!-- =-=-=-=-=-=-= Register Form End =-=-=-=-=-=-= -->
+  </div>

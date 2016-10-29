@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025014759) do
+ActiveRecord::Schema.define(version: 20161029030941) do
+
+  create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email",           null: false
+    t.string   "email_for_index", null: false
+    t.string   "admin_name",      null: false
+    t.string   "hashed_password"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "post_id"
@@ -40,6 +49,7 @@ ActiveRecord::Schema.define(version: 20161025014759) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "category"
+    t.string   "title"
     t.index ["member_id", "created_at"], name: "index_posts_on_member_id_and_created_at", using: :btree
     t.index ["member_id"], name: "index_posts_on_member_id", using: :btree
   end

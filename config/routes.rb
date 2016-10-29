@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'prod' => 'top#prod'
     get 'sweets' => 'top#sweets'
     get 'goods' => 'top#goods'
-    get 'shop' => 'top#shop'
+    get 'store' => 'top#store'
     get 'art' => 'top#art'
     get 'play' => 'top#play'
     get 'event' => 'top#event'
@@ -37,9 +37,14 @@ Rails.application.routes.draw do
  
   namespace :admin do
     root 'top#index'
+    get 'signup' => 'signups#new'
     get 'login' => 'sessions#new', as: :login
     resource :session, only: [:create, :destroy]
-    resources :members
+    resource :signup, only: [ :create, :destroy ]
+    resources :members do
+    resources :shops
+    resource :member_password, only: [ :show, :edit, :update ]
+end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

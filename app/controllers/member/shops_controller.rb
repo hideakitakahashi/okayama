@@ -3,6 +3,10 @@ class Member::ShopsController < Member::Base
     @shop = Shop.order(:id) 
   end
 
+  def show
+    @member = current_member
+    @shop = Shop.find(params[:id])
+  end
 
   def new
     @member = current_member

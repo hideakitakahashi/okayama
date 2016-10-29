@@ -140,9 +140,9 @@
           <!-- col-md-2 client-block -->
           <div class="col-md-2 col-xs-6 col-sm-4 client-block">
             <!-- client-item client-item-style-2 -->
-             <h5><%= link_to '売店・食堂' , :member_shop %></h5>
+             <h5><%= link_to '売店・食堂' , :member_store %></h5>
             <div class="client-item client-item-style-2">
-                <%= link_to image_tag("shop.jpg"), :member_shop %>
+                <%= link_to image_tag("shop.jpg"), :member_store %>
             </div>
             <!-- /client-item client-item-style-2 -->
           </div>
@@ -213,7 +213,7 @@
                   <tr>
 
                     <th>分類</th>
-                    <th>内容</th>
+                    <th>件名</th>
                     <th>投稿日</th>
                     <!--<th>返信</th>-->
                     <th>コメント数</th>
@@ -224,7 +224,7 @@
                  <tr>
                    
                    <td><%= link_to m.category, [:member, m] %></td>
-                  <td><%= link_to m.content.truncate(20), [:member, m] %></td>
+                  <td><%= link_to m.title, [:member, m] %></td>
                   <td><%= l m.created_at, format: :short %></td>
 
                   <!--<td><%= m.comments.last(1).each do |k| %><%= k.content.truncate(20) %><% end %></td>-->

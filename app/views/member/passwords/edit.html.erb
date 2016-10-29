@@ -1,8 +1,54 @@
-<%= form_for @change_password_form, url: :member_password, memthod: :patch do |f| %>
-新しいパスワード
-<%= f.password_field :new_password, size: 32 %>
-新しいパスワード（確認）
-<%= f.password_field :new_password_confirmation, size: 32 %>
-<%= f.submit '変更' %>
-<%= link_to 'キャンセル', :member_account %>
-<% end %>
+
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Register Form =-=-=-=-=-=-= -->
+    <section class="section-padding-80 white" id="register">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+
+            <div class="box-panel">
+
+            <p>パスワードを変更できます。新しいパスワードを入力して更新ボタンを押してください。</p>
+              <p class="text-center margin-top-10"><span class="span-line"></span>
+              </p>
+
+              <!-- form login -->
+              <%= form_for @change_password_form, url: :member_password, memthod: :patch do |f| %>
+              <form>
+                <div class="form-group">
+                  <label><%= f.label :new_password, '新しいパスワード' %></label>
+                  <%= f.password_field :new_password, size: 32 %>
+                </div>
+                <div class="form-group">
+                  <label><%= f.label :new_password_confirmation, '新しいパスワード（確認）' %></label>
+                  <%= f.password_field :new_password_confirmation, size: 32 %>
+                </div>
+
+
+                <div class="form-group">
+                  <div class="row">
+
+                    <div class="col-xs-12 text-right">
+                      <%= link_to 'キャンセル', :member_account %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <%= f.submit '更新', :class => "btn btn-primary btn-lg btn-block" %>
+
+              </form>
+              <!-- form login -->
+              <% end %>
+
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- end container -->
+    </section>
+    <!-- =-=-=-=-=-=-= Register Form End =-=-=-=-=-=-= -->
+  </div>

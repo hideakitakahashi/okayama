@@ -10,7 +10,7 @@ class Admin::Base < ApplicationController
 
   def authorize
     unless current_admin
-      flash.alert = 'メンバーとしてログインしてください。'
+      flash.alert = '管理者としてログインしてください。'
       redirect_to :admin_login
     end
   end

@@ -1,0 +1,52 @@
+
+<div class="main-content-area">
+    <!-- =-=-=-=-=-=-= Latest Questions  =-=-=-=-=-=-= -->
+
+    <section class="white question-tabs padding-bottom-80" id="latest-post">
+      <div class="container">
+        <div class="row">
+<br>
+<div class="search-area container">
+<p class="slogan-tag-line">管理者ページ</p>
+
+  </div>
+
+            <div class="panel-body">
+            <%= link_to 'メンバー新規登録', :new_admin_member %>
+
+                <div id="tab1" class="tab-pane active">
+                 <table>
+                  <tr>
+
+                    <th>氏名</th>
+                    <th>email</th>
+                    <th>password</th>
+                    <!--<th>返信</th>-->
+                    <th>登録日時</th>
+                    <th>アクション</th>
+                  </tr>
+                <% @members.each do |m| %>
+                  <!-- Question Listing -->
+
+                 <tr>
+                   
+                   <td><%= m.family_name %> <%= m.given_name %></td>
+                  <td><%= m.email %></td>
+                  <td><%= link_to '変更', [:admin, m, :member_password] %></td>
+                  <td><%= l m.created_at, format: :short %></td>
+                  <td><%= link_to '詳細', [:admin, m] %>/<%= link_to '編集', [:edit_admin, m] %>/<%= link_to 'ショップ登録', [ :new_admin, m, :shop ] %>/
+                  <% m.shops.each do |k| %>
+                  <%= link_to 'ショップ確認', [:admin, m, k ] %>
+                  <% end %>
+                  </td>
+
+                  </tr>
+                  <% end %>
+                </table>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>

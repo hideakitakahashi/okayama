@@ -72,12 +72,13 @@
                   <label><%= f.label :password, 'パスワード' %></label>
                   <%= f.password_field :password, :class => "form-control" %>
                 </div>
-                
+
                 <div class="form-group">
                   <div class="row">
 
                     <div class="col-xs-12 text-right">
-                      <p class="help-block"><a data-toggle="modal" href="login.html">既にアカウントをお持ちの方はこちら</a>
+
+                      <%= link_to '既にアカウントをお持ちの方はこちら', :member_login %>
                       </p>
                     </div>
                   </div>

@@ -1,18 +1,83 @@
-<% @title = 'メンバーログイン' %>
 
-<div id="login-form">
-<h1><%= @title %></h1>
 
- <%= form_for @form, url: :member_session do |f| %>
-  <div>
-   <%= f.label :email, 'email' %>
-   <%= f.text_field :email %>
 
-   <%= f.label :password, 'password' %>
-   <%= f.password_field :password %>
+ <!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
+  <div class="main-content-area">
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+    <section class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+            <h1>メンバーログイン</h1>
+          </div>
+          <!-- end col -->
+          <div class="col-md-6 col-sm-5 co-xs-12 text-right">
+            <div class="bread">
+              <ol class="breadcrumb">
+                <li><a href="#">トップページ</a>
+                </li>
+                <li class="active">メンバーログイン</li>
+              </ol>
+            </div>
+            <!-- end bread -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Register Form =-=-=-=-=-=-= -->
+    <section class="section-padding-80 white" id="register">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+
+            <div class="box-panel">
+
+
+              <p class="text-center margin-top-10"><span class="span-line"></span>
+              </p>
+
+              <!-- form login -->
+              <%= form_for @form, url: :member_session do |f| %>
+              <form>
+                <div class="form-group">
+                  <label><%= f.label :email, 'email' %></label>
+                  <%= f.text_field :email %>
+                </div>
+                <div class="form-group">
+                  <label><%= f.label :password, 'password' %></label>
+                  <%= f.password_field :password %>
+                </div>
+
+
+                <div class="form-group">
+                  <div class="row">
+
+                    <div class="col-xs-12 text-right">
+                      <%= link_to 'まだアカウントをお持ちでない方はこちら', :member_signup %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <%= f.submit 'ログイン', :class => "btn btn-primary btn-lg btn-block" %>
+
+              </form>
+              <!-- form login -->
+              <% end %>
+
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- end container -->
+    </section>
+    <!-- =-=-=-=-=-=-= Register Form End =-=-=-=-=-=-= -->
   </div>
-  <div>
-   <%= f.submit 'ログイン'%>
-  </div>
- <% end %>
-</div>

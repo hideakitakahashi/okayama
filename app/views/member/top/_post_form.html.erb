@@ -1,5 +1,7 @@
 <%= f.label :category, 'カテゴリー（分野）' %>
   <%= f.select :category, [["", Post::CATEGORY_NAMES]], :prompt => '投稿するカテゴリーをお選び下さい' %>
 <br>
-
+<%= f.label :title, '件名' %>
+<%= f.text_field :title, :placeholder => "件名を記入してください。" %>
+<br>
 <%= f.text_area :content, :placeholder => "投稿内容を記入してください。", :size => "35x5" %>
