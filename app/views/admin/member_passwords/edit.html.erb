@@ -1,0 +1,8 @@
+<%= form_for @change_member_password_form, url: :admin_member_member_password, memthod: :patch do |f| %>
+新しいパスワード
+<%= f.password_field :new_password, size: 32 %>
+新しいパスワード（確認）
+<%= f.password_field :new_password_confirmation, size: 32 %>
+<%= f.submit '変更' %>
+<%= link_to 'キャンセル', :admin_root %>
+<% end %>

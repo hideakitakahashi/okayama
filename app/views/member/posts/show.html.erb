@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
 
-                  <div class="tagcloud"> <a href=""><%= @post.category %></a> </div>
+                  <div class="tagcloud"> <%= link_to @post.category, member_select_path( :category => @post.category )%> </div>
                 </div>
               </div>
             </div>
@@ -127,9 +127,10 @@
             <div class="side-bar">
               <div class="widget">
                 <div class="widget-image widget-image-sm">
-                  <div class="widget-image-content text-center"> 
-                  <%= image_tag @post.member.image, :class => "img-thumbnail" %>
-                    <h2 class="widget-heading text-light"><strong>投稿者：<%= @post.member.family_name %> <%= @post.member.given_name %></strong></h2>
+                  <div class="widget-image-content text-center">
+                  <%= image_tag @post.member.image  %>
+
+                    <h2 class="widget-heading text-light"><strong><%= @post.member.family_name %> <%= @post.member.given_name %><%= link_to  '!!', member_member_path(member_id: @post.member.id) %></strong> </h2>
                     <h4 class="widget-heading text-light-op"><em><% @post.member.shops.each do |m| %>
                       <%= m.name %><% end %></em>
                     </h4>
@@ -156,8 +157,8 @@
                     <li>
 
 
-                     投稿カテゴリー：<a href=""><%= p.category %></a><br>
-                    <a href="#"><%= p.content %></a>
+                     投稿カテゴリー：<%= link_to p.category, member_select_path( :category => p.category )%><br>
+                    <%= link_to p.title, [:member, p] %>
 
 
 

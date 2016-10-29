@@ -23,8 +23,14 @@ Rails.application.routes.draw do
     resource :account, except: [:new, :create, :destroy]
     resource :signup, only: [ :create, :destroy ]
     resources :posts 
+    get 'select' => 'posts#select'
     resource :password, only: [ :show, :edit, :update ]
     resources :shops 
+    resources :members do
+        member do 
+    get 'shop' => 'members#shop'
+end
+end
 
     resource :comments, only: [ :create, :destroy ]
   end

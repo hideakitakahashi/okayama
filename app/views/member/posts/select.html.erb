@@ -1,0 +1,49 @@
+
+
+  <div class="main-content-area">
+    <!-- =-=-=-=-=-=-= Latest Questions  =-=-=-=-=-=-= -->
+
+    <section class="white question-tabs padding-bottom-80" id="latest-post">
+      <div class="container">
+        <div class="row">
+<br>
+<div class="search-area container">
+<p class="slogan-tag-line">消費者掲示板（<%= @category %>カテゴリー）</p>
+
+  </div>
+
+            <div class="panel-body">
+              <p>掲示板の利用登録をすれば地域に関係なく誰でも投稿できます。（モバイル対応）</p>
+
+                <div id="tab1" class="tab-pane active">
+                 <table>
+                  <tr>
+
+                    <th>分類</th>
+                    <th>件名</th>
+                    <th>投稿日</th>
+                    <!--<th>返信</th>-->
+                    <th>コメント数</th>
+                  </tr>
+                <% @posts.each do |m| %>
+                  <!-- Question Listing -->
+
+                 <tr>
+                   
+                   <td><%= link_to m.category, member_select_path( :category => m.category )%></td>
+                  <td><%= link_to m.title, [:member, m] %></td>
+                  <td><%= l m.created_at, format: :short %></td>
+
+                  <!--<td><%= m.comments.last(1).each do |k| %><%= k.content.truncate(20) %><% end %></td>-->
+
+                  <td><%= m.comments.count %></td>
+                  </tr>
+                  <% end %>
+                </table>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>

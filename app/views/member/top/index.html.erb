@@ -223,7 +223,7 @@
 
                  <tr>
                    
-                   <td><%= link_to m.category, [:member, m] %></td>
+                   <td><%= link_to m.category, member_select_path( :category => m.category )%></td>
                   <td><%= link_to m.title, [:member, m] %></td>
                   <td><%= l m.created_at, format: :short %></td>
 

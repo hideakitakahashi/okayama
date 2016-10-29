@@ -42,6 +42,13 @@ class Member::PostsController < Member::Base
     redirect_to :member_root
   end
 
+  def select
+    @member = current_member
+    @category = params[:category]
+    @posts = Post.where(category: @category)
+    @comment = @member.comments.build(member_id: @member.id)
+  end
+
   private
 
 
