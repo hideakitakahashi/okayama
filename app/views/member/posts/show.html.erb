@@ -30,7 +30,7 @@
 
     <!-- =-=-=-=-=-=-= Question Details =-=-=-=-=-=-= -->
 
-    <section class="section-padding-80 white question-details">
+    <section class="section-padding-25 white question-details">
       <div class="container">
         <!-- Row -->
         <div class="row">
@@ -42,7 +42,7 @@
               <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <h3><a  href="#"> <%= @post.title %> </a></h3>
-                  <div class="listing-meta"> <span><i class="fa fa-clock-o" aria-hidden="true"></i>投稿日：<%= l @post.created_at, format: :short %></span> <span><i class="fa fa fa-eye" aria-hidden="true"></i></span> </div>
+                  <div class="listing-meta"> <span><i class="icon ion-clock"></i>投稿日：<%= l @post.created_at, format: :short %></span>  </div>
                   <strong><p><%= @post.content %></p></strong>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -91,7 +91,7 @@
                        <% if current_member %>
                         <%= form_for [ :member, @comment ] do |f| %>
 
-                        <%= f.text_area :content, :pleceholder => 'こちらに応答してください'%>
+                        <%= f.text_area :content, :pleceholder => 'こちらに応答してください', :size => "40x5"%>
                         <%= f.hidden_field :member_id, :value => current_member.id %>
                         <%= f.hidden_field :post_id, :value => @post.id %>
 
@@ -128,11 +128,13 @@
               <div class="widget">
                 <div class="widget-image widget-image-sm">
                   <div class="widget-image-content text-center">
+
                   <%= image_tag @post.member.image  %>
 
-                    <h2 class="widget-heading text-light"><strong><%= @post.member.family_name %> <%= @post.member.given_name %><%= link_to  '!!', member_member_path(member_id: @post.member.id) %></strong> </h2>
+
+                    <h2 class="widget-heading text-light"><strong><%= @post.member.family_name %> <%= @post.member.given_name %><%= link_to  '※※', member_member_path(member_id: @post.member.id) %></strong> </h2>
                     <h4 class="widget-heading text-light-op"><em><% @post.member.shops.each do |m| %>
-                      <%= m.name %><% end %></em>
+                      <i class="icon ion-briefcase"></i><%= m.name %><% end %></em>
                     </h4>
                   </div>
                 </div>

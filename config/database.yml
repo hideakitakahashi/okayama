@@ -51,6 +51,6 @@ test:
 #
 production:
   <<: *default
-  database: Okayama_production
-  username: production
-  password: 'Ht641299prod'
+  database: okayama_production
+  username: root
+  password:
