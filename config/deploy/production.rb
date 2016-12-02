@@ -49,16 +49,16 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
+ server '52.196.9.184',
+   user: 'hideaki',
+   roles: %w{app db web},
+   ssh_options: {
+      # overrides user setting above
+     keys: [File.expand_path('~/.ssh/Okayama.pem')],
+#     forward_agent: true,
+forward_agent: false,
+  auth_methods: %w(publickey)
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
-#   }
+   }
 
-server '52.196.9.184', user: 'hideaki', roles: %w{app db web} 
-set :ssh_options, keys: '~/.ssh/oushimado_key_rsa'

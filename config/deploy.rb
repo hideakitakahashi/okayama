@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:hideakitakahashi/okayama.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
- set :deploy_to, '/var/www/rails/okayama'
+ set :deploy_to, '/var/www/okayama'
 
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
