@@ -15,7 +15,9 @@ class Member::PostsController < Member::Base
 
   def show
     @member = current_member
+    if current_member
     @comment = @member.comments.build
+    end
     @post =  Post.find(params[:id])
     @comments = @post.comments.order("created_at DESC")
     @posts = Post.order("created_at DESC")
@@ -46,7 +48,9 @@ class Member::PostsController < Member::Base
     @member = current_member
     @category = params[:category]
     @posts = Post.where(category: @category)
+    if current_member
     @comment = @member.comments.build(member_id: @member.id)
+  end
   end
 
   private

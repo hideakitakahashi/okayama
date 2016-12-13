@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-
+ 
+ get '/' => 'static_pages#index'
+ 
   namespace :member do
     root 'top#index'
     get 'login' => 'sessions#new', as: :login
