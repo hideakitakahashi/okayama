@@ -49,14 +49,14 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
- server '52.196.9.184',
+ server '52.193.48.164',
    user: 'hideaki',
    roles: %w{app db web},
    ssh_options: {
       # overrides user setting above
-     keys: [File.expand_path('~/.ssh/Okayama.pem')],
+     keys: [File.expand_path('~/.ssh/oushimado_key_rsa')],
 #     forward_agent: true,
-forward_agent: false,
+forward_agent: true,
   auth_methods: %w(publickey)
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
