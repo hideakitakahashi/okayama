@@ -63,7 +63,7 @@
                 <div id="tab1" class="tab-pane active">
                  <table>
 
-                <%= @comments.each do |k| %>
+                <% @comments.each do |k| %>
                   <!-- Question Listing -->
 
                  <tr>
@@ -87,7 +87,7 @@
 
               <div class="clearfix"></div>
                   <div class="form-group">
-                  <label>新規コメント</label>
+                  <label>このページへのコメント</label>
                        <% if current_member %>
                         <%= form_for [ :member, @comment ] do |f| %>
 
@@ -154,7 +154,7 @@
                   <h2>サイト内の最新投稿</h2>
                   <hr class="widget-separator no-margin">
                   <ul>
-                  <%= @posts.first(5).each do |p| %>
+                  <% @posts.first(5).each do |p| %>
                 
                     <li>
 

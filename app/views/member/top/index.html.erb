@@ -2,7 +2,7 @@
 <div class="full-section search-section">
     <div class="search-area container">
       <h3 class="search-title">ニューエイジ消費者コミュニティー牛窓（ホームページ立ち上げ中）</h3>
-      <p class="search-tag-line">目に見えない「愛の心」を形ある「物」に現す人たち。 <br>私たち消費者はそんな生産者や提供者を求めています。<br>牛窓を中心に提供者への要望や質問など<br>消費者のコミュニケーションを中心にしたゆるゆるほんわかコミュニティー</p>
+      <p class="search-tag-line">目に見えない「愛の心」を形ある「物」に現す人たち。私たち消費者はそんな生産者や提供者を求めています。<br>消費者のコミュニケーションを中心にしたゆるゆるほんわかコミュニティーです。</p>
       
     </div>
   </div>
@@ -29,7 +29,7 @@
           <!-- col-md-2 client-block -->
           <div class="col-md-2 col-xs-6 col-sm-4 client-block">
             <!-- client-item client-item-style-2 -->
-            <h5><%= link_to '工房・アート' , :member_art %></h5>
+            <h5><%= link_to '雑貨・工房・アート' , :member_art %></h5>
             <div class="client-item client-item-style-2">
                 <%= link_to image_tag("toy.jpg"), :member_art %>
             </div>
@@ -94,16 +94,7 @@
           </div>
           <!-- /col-md-2 client-block -->
 
-          <!-- col-md-2 client-block -->
-          <div class="col-md-2 col-xs-6 col-sm-4 client-block">
-            <!-- client-item client-item-style-2 -->
-            <h5><%= link_to 'アースシップを造りたい' , :member_ship %></h5>
-            <div class="client-item client-item-style-2">
-                <%= link_to image_tag("ship.jpg"), :member_ship %>
-            </div>
-            <!-- /client-item client-item-style-2 -->
-          </div>
-          <!-- /col-md-2 client-block -->
+         
 
           <!-- col-md-2 client-block -->
           <div class="col-md-2 col-xs-6 col-sm-4 client-block">
@@ -127,22 +118,24 @@
             <!-- /client-item client-item-style-2 -->
           </div>
           <!-- /col-md-2 client-block -->
-          <!-- col-md-2 client-block -->
-          <div class="col-md-2 col-xs-6 col-sm-4 client-block">
-            <!-- client-item client-item-style-2 -->
-             <h5><%= link_to '日用雑貨' , :member_goods %></h5>
-            <div class="client-item client-item-style-2">
-                <%= link_to image_tag("goods.jpg"), :member_goods %>
-            </div>
-            <!-- /client-item client-item-style-2 -->
-          </div>
-          <!-- /col-md-2 client-block -->
+         
           <!-- col-md-2 client-block -->
           <div class="col-md-2 col-xs-6 col-sm-4 client-block">
             <!-- client-item client-item-style-2 -->
              <h5><%= link_to '売店・食堂' , :member_store %></h5>
             <div class="client-item client-item-style-2">
                 <%= link_to image_tag("shop.jpg"), :member_store %>
+            </div>
+            <!-- /client-item client-item-style-2 -->
+          </div>
+          <!-- /col-md-2 client-block -->
+
+           <!-- col-md-2 client-block -->
+          <div class="col-md-2 col-xs-6 col-sm-4 client-block">
+            <!-- client-item client-item-style-2 -->
+            <h5><%= link_to 'その他・雑談' , :member_ship %></h5>
+            <div class="client-item client-item-style-2">
+                <%= link_to image_tag("ship.jpg"), :member_ship %>
             </div>
             <!-- /client-item client-item-style-2 -->
           </div>
@@ -163,20 +156,6 @@
           </div>
           <!-- /col-md-2 client-block -->
 
-          <!-- col-md-2 client-block -->
-          <div class="col-md-2 col-xs-6 col-sm-4 client-block">
-            <!-- client-item client-item-style-2 -->
-            <h5><%= link_to '遊ぶ' , :member_play %></h5>
-            <div class="client-item client-item-style-2">
-                <%= link_to image_tag("play.jpg"), :member_play %>
-            </div>
-            
-            <!-- /client-item client-item-style-2 -->
-          </div>
-          <!-- /col-md-2 client-block -->
-
-
-         
 
         </div>
         <!-- Row End -->
@@ -196,15 +175,20 @@
 <div class="search-area container">
 <p class="slogan-tag-line"><i class="icon ion-clipboard"></i>　消費者掲示板</p>
 <% if current_member %>
+
 <%= form_for [ :member, @post ], :html => {:class => "post-form clearfix"} do |f| %>
+
 <%= render 'post_form', f: f %>
+
   <%= f.submit '投稿する' %>
+  
 <% end %>
+  
 <% else %>
 <%= link_to 'メンバー登録はこちら', :member_signup, :class => "btn btn-primary btn-lg btn-block" %>
 <% end %>
+  
   </div>
-
             <div class="panel-body">
               <p>掲示板の利用登録をすれば地域に関係なく誰でも投稿できます。（モバイル対応）</p>
 
