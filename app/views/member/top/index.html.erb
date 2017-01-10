@@ -173,24 +173,24 @@
         <div class="row">
 <br>
 <div class="search-area container">
-<p class="slogan-tag-line"><i class="icon ion-clipboard"></i>　消費者掲示板</p>
+<p class="slogan-tag-line"><i class="icon ion-clipboard"></i>　誰でも自由に掲示板</p>
 <% if current_member %>
-
-<%= form_for [ :member, @post ], :html => {:class => "post-form clearfix"} do |f| %>
+  <p>掲示板トップ画面：質問や、希望、連絡などの新しい件名を立てる場合は下の各分類のどれかをクリックもしくは<%= link_to 'ここ', :member_posts %>をクリックしてください</p>
+<!--<%= form_for [ :member, @post ], :html => {:class => "post-form clearfix"} do |f| %>
 
 <%= render 'post_form', f: f %>
 
   <%= f.submit '投稿する' %>
   
-<% end %>
+<% end %>-->
   
 <% else %>
-<%= link_to 'メンバー登録はこちら', :member_signup, :class => "btn btn-primary btn-lg btn-block" %>
+<%= link_to '掲示板参加登録はこちら、ニックネームでも登録できます。', :member_signup, :class => "btn btn-primary btn-lg btn-block" %>
 <% end %>
-  
+<p>掲示板の利用登録をすれば地域に関係なく誰でも投稿できます。（モバイル対応）</p>
+
   </div>
             <div class="panel-body">
-              <p>掲示板の利用登録をすれば地域に関係なく誰でも投稿できます。（モバイル対応）</p>
 
                 <div id="tab1" class="tab-pane active">
                  <table>
@@ -199,7 +199,7 @@
                     <th>分類</th>
                     <th>件名</th>
                     <th>投稿日</th>
-                    <!--<th>返信</th>-->
+                    <th>新しい返信</th>
                     <th>コメント数</th>
                   </tr>
                 <% @posts.each do |m| %>
@@ -211,9 +211,12 @@
                   <td><%= link_to m.title, [:member, m] %></td>
                   <td><%= l m.created_at, format: :short %></td>
 
-                  <!--<td><%= m.comments.last(1).each do |k| %><%= k.content.truncate(20) %><% end %></td>-->
+                  <td><% m.comments.last(1).each do |k| %>
+                  <%= link_to k.content.truncate(14), [:member, m] %>...
+                  <% end %>
+                  </td>
 
-                  <td><%= m.comments.count %></td>
+                  <td><%= link_to m.comments.count, [:member, m] %></td>
                   </tr>
                   <% end %>
                 </table>

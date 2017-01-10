@@ -12,7 +12,7 @@ class Member::CommentsController < Member::Base
 
       if @comment.save
         flash.notice = "掲示板に投稿されました。"
-        redirect_to :member_root
+        redirect_to :back
       else
         flash.notice = '投稿に失敗しました。全て入力してください。'
       redirect_to :member_root

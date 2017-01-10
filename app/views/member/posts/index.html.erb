@@ -1,27 +1,90 @@
-掲示板の使い方
-コミュニティーの説明
-その他
 
 
-<% @posts.each do |m| %>
-<%= l m.created_at, format: :short %>
-  <div>カテゴリー：<%= link_to m.category, [:member, m] %></div>
-  <div>内容：<%= link_to m.content.truncate(20), [:member, m] %></div>
-  <div>コメント：<%= link_to m.comments.count, [:member, m] %></div>
 
-  <%= m.comments.each do |c| %>
-  <%= c.content %>
-  <% end %>
+  <div class="main-content-area">
+    <!-- =-=-=-=-=-=-= Latest Questions  =-=-=-=-=-=-= -->
 
-  <% if current_member %>
-<%= form_for [ :member, @comment ] do |f| %>
+    <section class="white question-tabs padding-bottom-80" id="latest-post">
+      <div class="container">
+        <div class="row">
+<br>
+<div class="search-area container">
+<p class="slogan-tag-line">誰でも自由に掲示板</p>
+  
+  </div>
 
-<%= f.text_field :content %>
-<%= f.hidden_field :member_id %>
-<%= f.hidden_field :post_id, :value => m.id %>
 
-  <%= f.submit 'コメントする' %>
-<% end %>
-<% else %>
-<% end %>
-  <% end %>
+<div class="panel-body">
+
+                <div id="tab1" class="tab-pane active">
+                 <table>
+
+
+                 <tr>
+                   
+                   <td>1</td>
+                  <td>「掲示板の使い方」</td>
+                  <td>詳細</td>
+                  
+                  </tr>
+                  <tr>
+                   
+                   <td>2</td>
+                  <td>「発足の経緯と趣旨」</td>
+                  <td>詳細</td>
+                  
+                  </tr>
+                  <tr>
+                   
+                   <td>3</td>
+                  <td>「集合型HP雛形の無料配布」</td>
+                  <td>詳細</td>
+                  
+                  </tr>
+                </table>
+
+                </div>
+              </div>
+
+
+
+
+            <div class="panel-body">
+              <p>掲示板の利用登録をすれば地域に関係なく誰でも投稿できます。（モバイル対応）</p>
+
+                <div id="tab1" class="tab-pane active">
+                 <table>
+                  <tr>
+
+                    <th>分類</th>
+                    <th>件名</th>
+                    <th>投稿日</th>
+                    <th>新しい返信</th>
+                    <th>コメント数</th>
+                  </tr>
+                <% @posts.each do |m| %>
+                  <!-- Question Listing -->
+
+                 <tr>
+                   
+                   <td><%= link_to m.category, member_select_path( :category => m.category )%></td>
+                  <td><%= link_to m.title, [:member, m] %></td>
+                  <td><%= l m.created_at, format: :short %></td>
+
+                  <td><% m.comments.last(1).each do |k| %>
+                  <%= link_to k.content.truncate(14), [:member, m] %>...
+                  <% end %>
+                    
+                  </td>
+
+                  <td><%= link_to m.comments.count, [:member, m] %></td>
+                  </tr>
+                  <% end %>
+                </table>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>

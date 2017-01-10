@@ -44,13 +44,13 @@
           <%= 
            if current_member
            else
-           link_to 'メンバー登録', :member_signup
+           link_to 'アカウント登録', :member_signup
            end
           %>
           </li>
           <li>
             <div class="btn-nav">
-            <%= link_to '投稿する', :new_member_post, :class => "btn btn-primary btn-small navbar-btn" %>
+            <%= link_to '掲示板トップ画面', :member_posts, :class => "btn btn-primary btn-small navbar-btn" %>
             </div>
           </li>
         </ul>
