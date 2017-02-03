@@ -45,7 +45,7 @@
 
             <div class="box-panel">
 
-            <h2>スレッド作成</h2>
+            <h2>トピック作成</h2>
             <p>好きなカテゴリーに聞きたいことを投稿してみよう</p>
             <hr>
             <% if current_member %>
@@ -55,13 +55,13 @@
 
                   <%= render 'post_form', f: f %>
                 <div class="col-lg-12">
-                  <%= f.submit 'スレッドを作成する', :class => "btn btn-primary" %>
+                  <%= f.submit 'トピックを作成する', :class => "btn btn-primary" %>
 
                 </div>
               </div>
             <% end %>
             <% else %>
-            <%= link_to 'メンバー登録してスレッドを立ち上げる', :member_signup %>
+            <%= link_to 'メンバー登録してトピックを立ち上げる', :member_signup %>
            <% end %>
             </div>
           </div>

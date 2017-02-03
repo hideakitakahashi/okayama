@@ -2,6 +2,10 @@ class Admin::ShopsController < Admin::Base
   def index
     @shop = Shop.order(:id) 
   end
+  
+  def show
+      @shop = Shop.find(params[:id])
+  end
 
 
   def new

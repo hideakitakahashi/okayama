@@ -116,8 +116,11 @@
 
                      <div class="col-md-3 col-sm-2 col-xs-12">
                         <ul class="question-statistic">
+                        <li> <%= link_to 'トピック全体を削除する', [ :member, m ], :method => :delete , :class => 'btn'%>
+                          </li>
                           応答コメント：<li class="active"> <a data-toggle="tooltip" data-placement="bottom" data-original-title="Answers"><span><%= m.comments.count %></span></a> 
                           </li>
+
                         </ul>
                       </div>
 

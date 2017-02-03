@@ -9,9 +9,11 @@ class Member::CommentsController < Member::Base
  
   def create
       @comment = current_member.comments.build(comment_params)
-
+      member = current_member
+      post = @comment.post
       if @comment.save
         flash.notice = "掲示板に投稿されました。"
+            UserMailer.hello(member, post).deliver
         redirect_to :back
       else
         flash.notice = '投稿に失敗しました。全て入力してください。'

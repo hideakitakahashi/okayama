@@ -1,0 +1,66 @@
+    <!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
+  <div class="main-content-area">
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+    <section class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+            <h1>ショップ詳細</h1>
+          </div>
+          <!-- end col -->
+          <div class="col-md-6 col-sm-5 co-xs-12 text-right">
+            <div class="bread">
+              <ol class="breadcrumb">
+                <li><%= link_to 'トップページ', :admin_root %>
+                </li>
+                <li class="active">ショップ詳細</li>
+              </ol>
+            </div>
+            <!-- end bread -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Question Details =-=-=-=-=-=-= -->
+
+    <section class="section-padding-80 white question-details">
+      <div class="container">
+        <!-- Row -->
+        <div class="row">
+          <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+            <!-- Question Detail -->
+
+            <!-- Question Listing -->
+            <div class="listing-grid ">
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <h3><a  href="#"> <%= @shop.name %> </a></h3>
+                  <div class="listing-meta"> <span>登録日時:<%= l @shop.created_at, format: :short %></span> <span></span> </div>
+                  <strong><p>登録者:　<%= @shop.member.family_name %> <%= @shop.member.given_name %></p></strong>
+                  <strong><p>URL:　<%= @shop.url %></p></strong>
+                  <strong><p>Tell:　<%= @shop.phone %></p></strong>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                <p>カテゴリー：</p><div class="tagcloud"> <%= link_to @shop.category , member_select_path(category: @shop.category ) %></div>
+                </div>
+              </div>
+            </div>
+            <!-- Question Listing End -->
+
+            <div class="clearfix"></div>
+            <!-- Thread Reply -->
+            
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+      

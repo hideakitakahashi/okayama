@@ -68,10 +68,13 @@
 
                  <tr>
 
-                   <td><%= image_tag k.member.image, :class => "img-sm" %></td>
-                   <td><%= k.member.family_name %></td>
+                   <td class="category"><%= image_tag k.member.image, :class => "img-sm" %></td>
+                   <td class="category"><%= k.member.family_name %></td>
                   <td><%= k.content %></td>
-                  <td><%= l k.created_at, format: :short %></td>
+                  <td class="time"><%= l k.created_at, format: :short %></td>
+                  <% if k.member == current_member %>
+                  <td><%= link_to '削除', member_comments_path(:id => k.id) , :method => :delete %></td>
+                  <% end %>
                   </tr>
                   <% end %>
                 </table>

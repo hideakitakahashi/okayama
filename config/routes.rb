@@ -3,6 +3,7 @@ Rails.application.routes.draw do
  
  get '/' => 'static_pages#index'
  
+ 
   namespace :member do
     root 'top#index'
     get 'login' => 'sessions#new', as: :login
@@ -33,8 +34,14 @@ Rails.application.routes.draw do
     get 'shop' => 'members#shop'
 end
 end
-
-    resource :comments, only: [ :create, :destroy ]
+    resources :info, only: [ :index,:show ] do
+        member do
+            get 'howto' => 'info#howto'
+            get 'why' => 'info#why'
+            get 'vision' => 'info#vision'
+            end
+        end
+    resource :comments, only: [ :edit, :create, :destroy ]
   end
 
   
@@ -49,6 +56,7 @@ end
     get 'login' => 'sessions#new', as: :login
     resource :session, only: [:create, :destroy]
     resource :signup, only: [ :create, :destroy ]
+    resources :info
     resources :members do
     resources :shops
     resource :member_password, only: [ :show, :edit, :update ]

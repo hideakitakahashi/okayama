@@ -1,0 +1,76 @@
+ <div class="main-content-area">
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+    <section class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-7 col-xs-12 text-left">
+            <h1>ニューエイジコミュニティーについて</h1>
+          </div>
+          <!-- end col -->
+          <div class="col-md-6 col-sm-5 col-xs-12 text-right">
+            <div class="bread">
+              <ol class="breadcrumb">
+                <li><%= link_to 'トップページ', :member_root %>
+                </li>
+                <li><%= link_to '掲示板', :member_root %>
+                </li>
+                <li class="active">展望</li>
+              </ol>
+            </div>
+            <!-- end bread -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= User Profile =-=-=-=-=-=-= -->
+
+<section id="blog" class="custom-padding white">
+      <div class="container">
+
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Left Side Content -->
+          <div class="col-md-12 col-xs-12 col-sm-12">
+
+            <!-- Blog Grid -->
+
+            <div class="blog-detial">
+              <div class="blog-content">
+                <h5><a href="blog-detail.html">展望</a></h5>
+                <ul class="post-meta">
+                  <li>管理人</li>
+                  <li></li>
+                  <li><%= @info.created_at %></li>
+                </ul>
+
+              </div>
+
+              <p>
+              <%= @info.vision %>
+              </p>
+
+            </div>
+            <!-- Profile Sec -->
+          </div>
+
+        </div>
+        <!-- Row End -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- =-=-=-=-=-=-= User Profile end =-=-=-=-=-=-= -->
+
+  </div>
+
+  
+
+ 

@@ -1,0 +1,76 @@
+
+
+ <!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
+  <div class="main-content-area">
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+    <section class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+            <h1>管理者用　サイト情報編集</h1>
+          </div>
+          <!-- end col -->
+          <div class="col-md-6 col-sm-5 co-xs-12 text-right">
+            <div class="bread">
+              <ol class="breadcrumb">
+                <li><a href="#">トップページ</a>
+                </li>
+                <li class="active">管理者用　サイト情報編集</li>
+              </ol>
+            </div>
+            <!-- end bread -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Register Form =-=-=-=-=-=-= -->
+    <section class="section-padding-80 white" id="register">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+
+            <div class="box-panel">
+
+            <p>管理者専用のサイト情報編集画面です。</p>
+
+              <p class="text-center margin-top-10"><span class="span-line"></span>
+              </p>
+
+              <!-- form login -->
+              <%= form_for @info, :url => { :controller => :info, :action => :update } do |f| %>
+              <form>
+                <div class="form-group">
+                  <label><%= f.label :howto, '掲示板の使い方' %></label>
+                  <%= f.text_area :howto, :class => "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label><%= f.label :why, '発足の経緯と趣旨' %></label>
+                  <%= f.text_area :why, :class => "form-control" %>
+                </div>
+                <div class="form-group">
+                  <label><%= f.label :vision, '展望' %></label>
+                  <%= f.text_area :vision, :class => "form-control" %>
+                </div>
+                <%= f.submit '新規登録', :class => "btn btn-primary btn-lg btn-block" %>
+
+              </form>
+              <!-- form login -->
+              <% end %>
+
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- end container -->
+    </section>
+    <!-- =-=-=-=-=-=-= Register Form End =-=-=-=-=-=-= -->
+  </div>

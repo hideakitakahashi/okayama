@@ -1,7 +1,8 @@
 class Member::PostsController < Member::Base
   def index
     @posts = Post.order(:created_at)
-    .page(params[:page]) 
+    .page(params[:page])
+    @infos = Info.all
   end
 
   def new
@@ -46,6 +47,7 @@ class Member::PostsController < Member::Base
 
   def select
     @member = current_member
+    @post = @member.posts.build
     @category = params[:category]
     @posts = Post.where(category: @category)
     if current_member
